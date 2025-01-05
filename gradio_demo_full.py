@@ -16,7 +16,7 @@ from utils.pipeline_cn import StableDiffusionControlNetPipeline
 
 
 class StableHair:
-    def __init__(self, config="./configs/hair_transfer.yaml", device="cpu", weight_dtype=torch.float32) -> None:
+    def __init__(self, config="./configs/hair_transfer.yaml", device="cuda", weight_dtype=torch.float32) -> None:
         print("Initializing Stable Hair Pipeline...")
         self.config = OmegaConf.load(config)
         self.device = device
@@ -117,7 +117,7 @@ class StableHair:
         return image
 
 
-model = StableHair(config="./configs/hair_transfer.yaml", device="cpu", weight_dtype=torch.float32)
+model = StableHair(config="./configs/hair_transfer.yaml", device="cuda", weight_dtype=torch.float32)
 
 # Define your ML model or function here
 def model_call(id_image, ref_hair, converter_scale, scale, guidance_scale, controlnet_conditioning_scale):
