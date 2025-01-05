@@ -1,2 +1,7 @@
 .aider*
 .env
+*.bin
+models/stage1/
+models/stage2/
+__pycache__/
+.DS_Store
